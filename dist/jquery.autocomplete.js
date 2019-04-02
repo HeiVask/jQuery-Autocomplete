@@ -140,11 +140,11 @@
         }
 
         // Allow HTML
-        var pattern = new RegExp(utils.escapeRegExChars(currentValue), 'gi');
-        var matched = suggestion.value.match(pattern);
+        var pattern = new RegExp(currentValue, 'i');
+        var matched = $(suggestion.value).text().match(pattern);
         if (matched !== null) {
             var r = matched.toString();
-            return suggestion.value.replace(pattern, '<strong>' + r + '</strong>');
+            return $(suggestion.value).text().replace(pattern, '<strong>' + r + '</strong>');
         }
         else return suggestion.value;
     };
